@@ -1,0 +1,15 @@
+CREATE TABLE ContributorEntity (
+    login TEXT NOT NULL PRIMARY KEY,
+    avatarUrl TEXT NOT NULL,
+    contributions INTEGER NOT NULL
+);
+
+selectAllContributors:
+SELECT * FROM ContributorEntity;
+
+insertContributor:
+INSERT OR REPLACE INTO ContributorEntity(login, avatarUrl, contributions)
+VALUES (?, ?, ?);
+
+deleteAllContributors:
+DELETE FROM ContributorEntity;

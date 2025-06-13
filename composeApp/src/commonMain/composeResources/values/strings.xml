@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <string name="error_disk_full">Oops, it seems like your disk is full.</string>
+    <string name="error_unknown">Oops, something went wrong.</string>
+    <string name="error_request_timeout">The request timed out.</string>
+    <string name="error_no_internet">Couldn't reach server, please check your internet connection.</string>
+    <string name="error_too_many_requests">Your quota seems to be exceeded.</string>
+    <string name="error_serialization">Couldn't parse data.</string>
+
+
+    <!--    Sign-up Screen-->
+    <string name="app_name">PracticeKMP</string>
+    <string name="sign_up_text">New here? Sign up!</string>
+    <string name="sign_in">Sign in</string>
+    <string name="have_any_issue">Do you have any issues?</string>
+    <string name="contact_support_team">Contact the support team</string>
+    <string name="welcome">Welcome!</string>
+    <string name="login_to_start">Login to get started.</string>
+    <string name="language">Language</string>
+    <string name="phone_number">Phone number</string>
+    <string name="send_sms">Send SMS code</string>
+    <string name="help">Help</string>
+    <string name="provide_sms_code">Please provide SMS code</string>
+    <string name="enter_code">Enter the code we sent to your phone number...</string>
+    <string name="verify_code">Verify code</string>
+    <string name="resend_code">Resend code</string>
+    <string name="verification_successful">Verification Successful</string>
+    <string name="code_verified">Your code has been verified successfully. You can now proceed.</string>
+    <string name="continue_text">Continue</string>
+
+
+    <!--    Login Screen-->
+    <string name="create_password">Create a password</string>
+    <string name="create_password_body">Create your password to login.</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="create_password_login">Create and log in</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="successful_login">You have successfully login.</string>
+    <string name="no_watch_tutorial">I don't want to see a tutorial</string>
+    <string name="watch_tutorial">Begin with short tutorial of the app</string>
+    <string name="login">Log in</string>
+    <string name="login_body">Log in to manage your rides.</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="or">or</string>
+    <string name="vendor_code">Vendor code</string>Vendor Screen
+    <string name="provide_vendor_code">Please provide Vendor code</string>
+    <string name="enter_vendor_code">Enter the vendor code to proceed.</string>Profile Screen
+    <string name="my_profile">My profile</string>
+    <string name="driver">Driver</string>
+    <string name="user_data">User data</string>
+    <string name="setting">Settings</string>
+    <string name="sign_out">Sign out</string>
+    <string name="last_login">Last login:</string>
+    <string name="logout">Logout</string>
+    <string name="email">E-mail</string>
+
+    <!--Home Dashboard-->
+    <string name="cache">Cache</string>
+    <string name="my_jobs">My jobs</string>
+
+    <!--All jobs screen-->
+    <string name="title">Title</string>
+    <string name="filter">Filter</string>
+    <string name="date">Mon, Jan 8</string>
+    <string name="time">08:00</string>
+    <string name="shutle">Shutle</string>
+    <string name="project_name">Project name</string>
+    <string name="subproject_name">Subproject name</string>
+    <string name="nuremberg_nordostbahnhof">Nuremberg Nordostbahnhof</string>
+    <string name="nuremberg_maximilianstrasse">Nuremberg Maximilianstrasse</string>
+    <string name="6_stops_60_min">6 stops (60 min)</string>
+    <string name="job_details_and_start">Job details and start</string>
+    <string name="min">min</string>
+
+    <!--Job Details-->
+    <string name="job_details">Job details</string>
+    <string name="time_and_place_of_departure">Time and place of departure</string>
+    <string name="shifts">Shift(s)</string>
+    <string name="early_pt_early">Early PT, Early</string>
+    <string name="driver_name">Driver name</string>
+    <string name="jan_kowalski">Jan Kowalski</string>
+    <string name="destination">Destination</string>
+    <string name="arrival_time">Arrival time</string>
+    <string name="maps">Maps</string>
+    <string name="stops">Stops</string>
+    <string name="start">Start</string>
+    <string name="show_map">Show map</string>
+    <string name="show_list">Show list</string>
+    <string name="jk">JK</string>
+    <string name="you">You</string>
+
+
+    <string name="outside_geofenced">Outside geofenced area</string>
+    <string name="you_are_not_within">You are not within the geofenced area of the trip. Are you sure you selected the correct one?</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+    <string name="gps_is_turned_off">GPS is turned off</string>
+    <string name="the_app_cannot_be_use">The app cannot be used without GPS. Please enable GPS to continue.</string>
+    <string name="go_to_settings">Go to settings</string>
+
+
+    <string name="add_a_passenger">Add a passenger</string>
+    <string name="scan_qr_code">Scan QR</string>
+    <string name="cancel_the_ride">Cancel the ride</string>
+    <string name="gps_connected">GPS connected</string>
+    <string name="connection_status">Connection status</string>
+    <string name="scanner_connected">Scanner connected</string>
+    <string name="scanner_not_connected">Scanner not connected</string>
+
+    <string name="are_you_sure_you_want_to_cancel">Are you sure you want to cancel the ride? Please select a reason for cancellation and  choose where to transfer the trip details</string>
+    <string name="select_a_reason">Select a reason</string>
+    <string name="traffic_or_road">Traffic or road blockage</string>
+    <string name="technical_issue">Technical issue with the bus</string>
+    <string name="wrong_ride_selected">Wrong ride selected</string>
+    <string name="accident_on_the_read">Accident on the road</string>
+    <string name="other">Other</string>
+    <string name="data_transfer">Data transfer</string>
+    <string name="select_data_destination">Select data destination</string>
+    <string name="not_selected">Not selected</string>
+    <string name="confirm_cancellation">Confirm Cancellation</string>
+    <string name="go_back">Go Back</string>
+    <string name="internet_connected">Internet connected</string>
+
+
+    <string name="no_internet">No internet connection</string>
+    <string name="please_check_your_connection">Please check your connection and try again.</string>
+    <string name="ok">Ok</string>
+
+</resources>
