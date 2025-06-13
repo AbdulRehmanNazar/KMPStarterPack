@@ -13,6 +13,7 @@ androidx-testExt = "1.2.1"
 composeMultiplatform = "1.8.1"
 junit = "4.13.2"
 kotlin = "2.1.21"
+kotlinxCoroutinesTest = "1.10.2"
 ktorClientContentNegotiation = "3.1.1"
 ktorClientCore = "3.1.2"
 voyagerVersion = "1.1.0-beta03"
@@ -30,7 +31,9 @@ easyQRScan = "0.4.0"
 konnection="1.4.4"
 
 [libraries]
+#Unit Testing
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinxCoroutinesTest" }
 kotlin-testJunit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 junit = { module = "junit:junit", version.ref = "junit" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
