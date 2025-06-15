@@ -1,5 +1,5 @@
 # Kotlin Multiplatform StarterPack targeting Android+Ios.
-KMP StarterPack, which includes all the basic implementations from clean architecture, local cache to server communication etc
+As a KMP developer want to save at least 10 hours in start with strong architecture, use KMP StarterPack template, which includes all the basic implementations from clean architecture, local cache to server communication etc
 
 ## Features included
 - Clean architecture with Data, Domain, and Presentation layers.
