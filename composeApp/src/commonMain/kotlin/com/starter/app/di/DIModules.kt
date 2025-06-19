@@ -19,6 +19,7 @@ import com.starter.app.data.repository.ContributorRepositoryImp
 import com.starter.app.presentation.screens.contributor.ContributorsViewModel
 import com.starter.app.domain.usecase.*
 import com.russhwolf.settings.Settings
+import kotlinx.coroutines.Dispatchers
 
 /**
  * expect for platform module to get platform specific modules
@@ -46,7 +47,7 @@ val sharedModule = module {
     singleOf(::ContributorsViewModel)
     singleOf(::GetLocalContributorsUseCase)
     singleOf(::GetRemoteContributorsUseCase)
-    single { ContributorDao(get()) }
+    single { ContributorDao(get(), Dispatchers.Default) }
     single<ContributorLocalDataSource> { ContributorLocalDataSourceImpl(get()) }
     single<ContributorsRemoteDataSource> {
         ContributorsRemoteDataSourceImp(get(), get())

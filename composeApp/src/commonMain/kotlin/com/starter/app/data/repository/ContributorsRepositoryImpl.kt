@@ -7,6 +7,8 @@ import com.starter.app.data.mapper.ContributorMapper
 import com.starter.app.domain.datasource.ContributorsRemoteDataSource
 import com.starter.app.domain.model.Contributor
 import com.starter.app.domain.repository.ContributorRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 /**
  * Implementation of Repository with Local and Remote Datasource's
@@ -30,9 +32,18 @@ class ContributorRepositoryImp(
         }
     }
 
-
-    override suspend fun getLocalContributors(): Result<List<Contributor>, DataError.Local> {
+    override fun getLocalContributors(): Flow<Result<List<Contributor>, DataError.Local>> {
         return contributorLocalDataSource.getContributors()
-    }
+            .map { result ->
+                when (result) {
+                    is Result.Success -> {
+                        println("ScrollDebug Contributors list hash: ${result.data.hashCode()}")
 
+                        Result.Success(result.data.map { it })
+                    }
+
+                    is Result.Error -> Result.Error(result.error)
+                }
+            }
+    }
 }

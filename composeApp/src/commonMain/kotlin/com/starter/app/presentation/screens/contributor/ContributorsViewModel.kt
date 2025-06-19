@@ -13,50 +13,51 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import com.starter.app.core.domain.Result
+import com.starter.app.domain.repository.ContributorRepository
 import com.starter.app.domain.usecase.GetRemoteContributorsUseCase
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.stateIn
 
 /**
  * View model for contributor to define business logic for the list of contributors
  */
 class ContributorsViewModel(
     private val getRemoteContributorsUseCase: GetRemoteContributorsUseCase,
-    private val getContributorsUseCase: GetLocalContributorsUseCase
-) : ViewModel(){
+    private val getContributorsUseCase: GetLocalContributorsUseCase,
+    private val contributorRepository: ContributorRepository
+) : ViewModel() {
     private val _state = MutableStateFlow<UiState<List<Contributor>>>(UiState.Loading)
     val state: StateFlow<UiState<List<Contributor>>> = _state
 
     private val viewModelScope = CoroutineScope(Dispatchers.IO)
 
+    init {
+        loadRemoteContributors()
+    }
+
     /**
      * Load remote contributors
      */
-    fun loadRemoteContributors() {
+    private fun loadRemoteContributors() {
         viewModelScope.launch {
-            getRemoteContributorsUseCase.invoke()
-                .onSuccess { contributorList ->
-                    _state.value = UiState.Success(contributorList)
-                }
-                .onError { error ->
-                    _state.value = UiState.Error(error)
-                }
+            contributorRepository.getRemoteContributors()
         }
     }
 
     /**
      * Load local contributors
      */
-    fun getLocalContributors() {
+    fun getContributors() {
         _state.value = UiState.Loading
-        viewModelScope.launch {
-            when (val result = getContributorsUseCase.invoke()) {
-                is Result.Success -> {
-                    _state.value = UiState.Success(result.data)
-                }
 
-                is Result.Error -> {
-                    _state.value = UiState.Error(result.error)
+        viewModelScope.launch {
+            getContributorsUseCase()
+                .collect { result ->
+                    _state.value = when (result) {
+                        is Result.Success -> UiState.Success(result.data)
+                        is Result.Error -> UiState.Error(result.error)
+                    }
                 }
-            }
         }
     }
 }
