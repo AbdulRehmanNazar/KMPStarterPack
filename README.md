@@ -4,19 +4,20 @@ As a KMP developer want to save at least 10 hours in start with strong architect
 ## Features included
 - Clean architecture with Data, Domain, and Presentation layers.
 - MVVM framework
+- Implementation of Single Source of Truth Design principle.
 - Repositories pattern to achieve Abstraction for data access.
-- Interface Segregation / Abstraction
-- Use Case Pattern for Encapsulating application-specific business rules
-- Compose Multiplatform for shared views
-- Page navigation using Voyager
-- API integration using KTOR
-- Ktor Monitor to check the API logs
-- SQLDelight for local database
+- Interface Segregation / Abstraction.
+- Use Case Pattern for Encapsulating application-specific business rules.
+- Compose Multiplatform for shared views.
+- Page navigation using Voyager.
+- API integration using KTOR.
+- Ktor Monitor to check the API logs.
+- SQLDelight for local database.
 - Koin for Dependency Injection pattern for Factory/service locator.
-- Image loading using Coil
-- Key-Value shared preferences
-- Permissions for Android, Ios
-- Network connection status
+- Image loading using Coil.
+- Key-Value shared preferences.
+- Permissions for Android, Ios.
+- Network connection status.
 
 ## How to run code
 Here are the steps to run the demo project
