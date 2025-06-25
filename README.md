@@ -23,7 +23,6 @@ As a KMP developer want to save at least 10 hours in start with strong architect
 Here are the steps to run the demo project
 - Fork or download as a Zip code
 - Import in Android Studio
-- Open terminal
 - Build and run the project. That's it
 
 
