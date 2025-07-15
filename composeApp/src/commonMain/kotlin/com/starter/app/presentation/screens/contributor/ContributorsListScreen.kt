@@ -46,10 +46,14 @@ class ContributorsListScreen : Screen {
         val viewModel: ContributorsViewModel = koinInject()
         val state by viewModel.state.collectAsState()
 
-        LaunchedEffect(Unit) { viewModel.getContributors() }
+        LaunchedEffect(Unit) { viewModel.handleIntent(ContributorsIntent.LoadLocalContributors) }
+        val uiState = state.contributorsUiState
 
-        when (val uiState = state) {
-            is UiState.Idle -> {}
+        when (uiState) {
+            is UiState.Idle -> {
+                // You can show a placeholder or nothing
+            }
+
             is UiState.Loading -> {
                 LoadingDialog(true)
             }
@@ -64,7 +68,9 @@ class ContributorsListScreen : Screen {
                 }
             }
 
-            is UiState.Error -> Text("Error: ${uiState.message.toUiText().asString()}")
+            is UiState.Error -> {
+                Text("Error: ${uiState.message.toUiText().asString()}")
+            }
         }
     }
 }

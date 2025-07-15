@@ -26,13 +26,29 @@ class ContributorsViewModel(
     private val getContributorsUseCase: GetLocalContributorsUseCase,
     private val contributorRepository: ContributorRepository
 ) : ViewModel() {
-    private val _state = MutableStateFlow<UiState<List<Contributor>>>(UiState.Loading)
-    val state: StateFlow<UiState<List<Contributor>>> = _state
+    private val _state = MutableStateFlow(ContributorsState())
+    val state: StateFlow<ContributorsState> = _state
 
     private val viewModelScope = CoroutineScope(Dispatchers.IO)
 
     init {
-        loadRemoteContributors()
+        handleIntent(ContributorsIntent.LoadRemoteContributors)
+    }
+
+
+    /**
+     * Handle input actions
+     */
+    fun handleIntent(intent: ContributorsIntent) {
+        when (intent) {
+            is ContributorsIntent.LoadRemoteContributors -> {
+                loadRemoteContributors()
+            }
+
+            is ContributorsIntent.LoadLocalContributors -> {
+                getContributors()
+            }
+        }
     }
 
     /**
@@ -47,16 +63,17 @@ class ContributorsViewModel(
     /**
      * Load local contributors
      */
-    fun getContributors() {
-        _state.value = UiState.Loading
+    private fun getContributors() {
+        _state.value = _state.value.copy(contributorsUiState = UiState.Loading)
 
         viewModelScope.launch {
             getContributorsUseCase()
                 .collect { result ->
-                    _state.value = when (result) {
+                    val newUiState = when (result) {
                         is Result.Success -> UiState.Success(result.data)
                         is Result.Error -> UiState.Error(result.error)
                     }
+                    _state.value = _state.value.copy(contributorsUiState = newUiState)
                 }
         }
     }
