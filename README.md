@@ -3,7 +3,7 @@ As a KMP developer want to save at least 10 hours in start with strong architect
 
 ## Features included
 - Clean architecture with Data, Domain, and Presentation layers.
-- MVVM framework
+- MVI framework
 - Implementation of Single Source of Truth Design principle.
 - Repositories pattern to achieve Abstraction for data access.
 - Interface Segregation / Abstraction.
