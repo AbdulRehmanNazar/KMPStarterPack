@@ -1,7 +1,7 @@
 package com.starter.app.data.mapper
 
+import com.starter.app.data.local.entities.ContributorEntity
 import com.starter.app.data.remote.dto.ContributorDto
-import com.starter.app.db.ContributorEntity
 import com.starter.app.domain.model.Contributor
 
 /**
@@ -19,7 +19,7 @@ object ContributorMapper {
     // Remote DTO → Entity
     fun dtoToEntity(dto: ContributorDto): ContributorEntity {
         return ContributorEntity(
-            login = dto.login, avatarUrl = dto.avatarUrl, contributions = dto.contributions.toLong()
+            login = dto.login, avatarUrl = dto.avatarUrl, contributions = dto.contributions
         )
     }
 
@@ -35,7 +35,7 @@ object ContributorMapper {
         return ContributorEntity(
             login = domain.login,
             avatarUrl = domain.avatarUrl,
-            contributions = domain.contributions.toLong()
+            contributions = domain.contributions
         )
     }
 

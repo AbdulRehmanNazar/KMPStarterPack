@@ -15,8 +15,7 @@ import kotlinx.coroutines.launch
 import com.starter.app.core.domain.Result
 import com.starter.app.domain.repository.ContributorRepository
 import com.starter.app.domain.usecase.GetRemoteContributorsUseCase
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.stateIn
+import kotlin.invoke
 
 /**
  * View model for contributor to define business logic for the list of contributors
@@ -26,8 +25,8 @@ class ContributorsViewModel(
     private val getContributorsUseCase: GetLocalContributorsUseCase,
     private val contributorRepository: ContributorRepository
 ) : ViewModel() {
-    private val _state = MutableStateFlow(ContributorsState())
-    val state: StateFlow<ContributorsState> = _state
+    private val _state = MutableStateFlow<UiState<List<Contributor>>>(UiState.Loading)
+    val state: StateFlow<UiState<List<Contributor>>> = _state
 
     private val viewModelScope = CoroutineScope(Dispatchers.IO)
 
@@ -46,7 +45,7 @@ class ContributorsViewModel(
             }
 
             is ContributorsIntent.LoadLocalContributors -> {
-                getContributors()
+                getLocalContributors()
             }
         }
     }
@@ -60,21 +59,22 @@ class ContributorsViewModel(
         }
     }
 
+
     /**
      * Load local contributors
      */
-    private fun getContributors() {
-        _state.value = _state.value.copy(contributorsUiState = UiState.Loading)
-
+    fun getLocalContributors() {
+        _state.value = UiState.Loading
         viewModelScope.launch {
-            getContributorsUseCase()
-                .collect { result ->
-                    val newUiState = when (result) {
-                        is Result.Success -> UiState.Success(result.data)
-                        is Result.Error -> UiState.Error(result.error)
-                    }
-                    _state.value = _state.value.copy(contributorsUiState = newUiState)
+            when (val result = getContributorsUseCase.invoke()) {
+                is Result.Success -> {
+                    _state.value = UiState.Success(result.data)
                 }
+
+                is Result.Error -> {
+                    _state.value = UiState.Error(result.error)
+                }
+            }
         }
     }
 }

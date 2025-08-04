@@ -8,7 +8,8 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.sqlDelight)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.room)
 }
 
 kotlin {
@@ -40,15 +41,11 @@ kotlin {
             implementation(libs.koin.androidx.compose)
             //Ktor engine
             implementation(libs.ktor.client.okhttp) // Android engine
-            //SqlDelight
-            implementation(libs.sqldelight.android)
         }
 
         iosMain.dependencies {
             //Ktor engine
             implementation(libs.ktor.client.darwin)
-            //SqlDelight
-            implementation(libs.sqldelight.ios)
         }
 
         commonMain.dependencies {
@@ -77,9 +74,9 @@ kotlin {
             // Image loading - Kamel (works in commonMain for Android/iOS)
             implementation(libs.coil.image.loading)
 
-            //SqlDelight
-            implementation(libs.sqldelight.runtime)
-            implementation(libs.sqldelight.coroutines)
+            //Room
+            implementation(libs.room.runtime)
+            implementation(libs.sqlite.bundled)
 
             //SDP-SSP
             implementation(libs.sdp.ssp.compose.multiplatform)
@@ -143,15 +140,14 @@ android {
 
 dependencies {
     debugImplementation(compose.uiTooling)
+    add("kspAndroid", libs.room.compiler)
+    add("kspIosX64", libs.room.compiler)
+    add("kspIosArm64", libs.room.compiler)
+    add("kspIosSimulatorArm64", libs.room.compiler)
 }
 
-
-sqldelight {
-    databases {
-        create("AppDatabase") {
-            packageName.set("com.starter.app.db")
-        }
-    }
+room {
+    schemaDirectory("$projectDir/schemas")
 }
 
 
