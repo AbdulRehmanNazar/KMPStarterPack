@@ -12,7 +12,7 @@ As a KMP developer want to save at least 10 hours in start with strong architect
 - Page navigation using Voyager.
 - API integration using KTOR.
 - Ktor Monitor to check the API logs.
-- SQLDelight for local database.
+- Room for local database.
 - Koin for Dependency Injection pattern for Factory/service locator.
 - Image loading using Coil.
 - Key-Value shared preferences.
