@@ -32,7 +32,7 @@ class ContributorRepositoryImp(
         }
     }
 
-    override fun getLocalContributors(): Result<List<Contributor>, DataError.Local> {
+    override suspend fun getLocalContributors(): Result<List<Contributor>, DataError.Local> {
         return contributorLocalDataSource.getContributors()
     }
 }

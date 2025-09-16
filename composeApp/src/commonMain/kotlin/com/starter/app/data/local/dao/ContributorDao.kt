@@ -12,10 +12,10 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface ContributorDao {
     @Query("SELECT * FROM contributor")
-    fun getAll(): Flow<List<ContributorEntity>>
+     fun getAll(): Flow<List<ContributorEntity>>
 
     @Query("SELECT * FROM contributor")
-    fun getAllContributors(): List<ContributorEntity>
+    suspend fun getAllContributors(): List<ContributorEntity>
 
 //    @Query("SELECT * FROM user where email = :email")
 //    fun searchUserWithEmail(email: String): User?

@@ -8,8 +8,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import network.chaintech.sdpcomposemultiplatform.ssp
 import org.jetbrains.compose.resources.Font
-import starterpack.composeapp.generated.resources.Res
-import starterpack.composeapp.generated.resources.*
+import kmpstarterpack.composeapp.generated.resources.*
 
 
 @Composable

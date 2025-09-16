@@ -15,7 +15,6 @@ import kotlinx.coroutines.launch
 import com.starter.app.core.domain.Result
 import com.starter.app.domain.repository.ContributorRepository
 import com.starter.app.domain.usecase.GetRemoteContributorsUseCase
-import kotlin.invoke
 
 /**
  * View model for contributor to define business logic for the list of contributors
@@ -33,7 +32,6 @@ class ContributorsViewModel(
     init {
         handleIntent(ContributorsIntent.LoadRemoteContributors)
     }
-
 
     /**
      * Handle input actions
@@ -56,6 +54,16 @@ class ContributorsViewModel(
     private fun loadRemoteContributors() {
         viewModelScope.launch {
             contributorRepository.getRemoteContributors()
+                .onSuccess {
+                    val current = _state.value
+                    if (current !is UiState.Success || current.data.isEmpty()) {
+                        // only reload local if we don’t already have data
+                        getLocalContributors()
+                    }
+                }
+                .onError {
+
+                }
         }
     }
 

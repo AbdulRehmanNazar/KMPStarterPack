@@ -26,11 +26,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.starter.app.core.presentation.theme.AppColors
+import kmpstarterpack.composeapp.generated.resources.*
 import network.chaintech.sdpcomposemultiplatform.sdp
 import network.chaintech.sdpcomposemultiplatform.ssp
 import org.jetbrains.compose.resources.stringResource
-import starterpack.composeapp.generated.resources.Res
-import starterpack.composeapp.generated.resources.*
 
 @Composable
 fun NoInternetDialog(
@@ -38,7 +37,7 @@ fun NoInternetDialog(
     onDismiss: () -> Unit,
     onConfirm: () -> Unit,
     onCancel: () -> Unit,
-    title: String = stringResource(Res.string.outside_geofenced),
+    title: String = stringResource(Res .string.outside_geofenced),
     message: String = stringResource(Res.string.you_are_not_within),
     confirmButtonText: String = stringResource(Res.string.yes),
     cancelButtonText: String = stringResource(Res.string.cancel),

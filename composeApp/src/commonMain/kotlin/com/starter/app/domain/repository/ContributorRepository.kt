@@ -10,5 +10,5 @@ import kotlinx.coroutines.flow.Flow
  */
 interface ContributorRepository {
     suspend fun getRemoteContributors(): Result<List<Contributor>, DataError.Remote>
-    fun getLocalContributors(): Result<List<Contributor>, DataError.Local>
+    suspend fun getLocalContributors(): Result<List<Contributor>, DataError.Local>
 }

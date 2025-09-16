@@ -1,8 +1,7 @@
 package com.starter.app.core.presentation
 
 import com.starter.app.core.domain.DataError
-import starterpack.composeapp.generated.resources.Res
-import starterpack.composeapp.generated.resources.*
+import kmpstarterpack.composeapp.generated.resources.*
 
 /**
  * Error messages conversion with pre defined string resources

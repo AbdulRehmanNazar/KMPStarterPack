@@ -23,9 +23,7 @@ rushWolfSettings = "1.3.0"
 coilImageLoading = "3.2.0"
 cmptoast = "1.0.4"
 calfPermissions = "0.8.0"
-klocation = "1.0.7"
 ktorMonitor = "1.7.2"
-qrKit = "3.0.6"
 easyQRScan = "0.4.0"
 konnection="1.4.4"
 ksp = "2.2.0-2.0.2"
@@ -93,9 +91,6 @@ multiplatform-settings-no-arg = { module = "com.russhwolf:multiplatform-settings
 
 #Permission
 calf-permissions = { module = "com.mohamedrejeb.calf:calf-permissions", version.ref = "calfPermissions" }
-
-#KLocation
-klocation = { module = "io.github.the-best-is-best:klocation", version.ref = "klocation" }
 
 #QRCode Kit - Commented for now as it makes issues on IOS app
 easy-qr-scan = { module = "io.github.kalinjul.easyqrscan:scanner", version.ref = "easyQRScan" }

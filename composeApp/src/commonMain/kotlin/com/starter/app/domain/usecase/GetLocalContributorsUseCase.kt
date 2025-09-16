@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 class GetLocalContributorsUseCase(
     private val repository: ContributorRepository
 ) {
-    operator fun invoke(): Result<List<Contributor>, DataError> {
+    suspend operator fun invoke(): Result<List<Contributor>, DataError> {
         return repository.getLocalContributors()
     }
 }

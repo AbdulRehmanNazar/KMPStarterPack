@@ -18,7 +18,7 @@ class ContributorLocalDataSourceImpl(
     private val dataBase: RoomSampleDataBase
 ) : ContributorLocalDataSource {
 
-    override fun getContributors(): Result<List<Contributor>, DataError.Local> {
+    override suspend fun getContributors(): Result<List<Contributor>, DataError.Local> {
         return try {
             val entities = dataBase.getContributorDao().getAllContributors()
             val domainList = entities.map { ContributorMapper.entityToDomain(it) }

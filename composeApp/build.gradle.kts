@@ -94,9 +94,6 @@ kotlin {
             //Permissions
             implementation(libs.calf.permissions)
 
-            //Locations
-            implementation(libs.klocation)
-
             //QRCode Scanning
             implementation(libs.easy.qr.scan)
 
