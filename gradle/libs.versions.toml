@@ -83,6 +83,7 @@ ktor-monitor-logging = { module = "ro.cosminmihu.ktor:ktor-monitor-logging", ver
 
 #Image loading
 coil-image-loading = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilImageLoading" }
+coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref = "coilImageLoading" }
 
 #Room DB
 androidx-sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }

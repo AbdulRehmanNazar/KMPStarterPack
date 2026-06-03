@@ -5,7 +5,8 @@ import com.starter.app.di.initKoin
 import platform.UIKit.UIViewController
 
 fun MainViewController(): UIViewController {
-    return ComposeUIViewController(configure = {
-        initKoin()
-    }) { App() }
+    // initKoin() is idempotent, so it is safe even if this controller is
+    // created more than once by SwiftUI.
+    initKoin()
+    return ComposeUIViewController { App() }
 }
