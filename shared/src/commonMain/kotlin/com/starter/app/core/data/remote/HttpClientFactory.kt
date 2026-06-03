@@ -12,9 +12,9 @@ import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
-import ro.cosminmihu.ktor.monitor.ContentLength
-import ro.cosminmihu.ktor.monitor.KtorMonitorLogging
-import ro.cosminmihu.ktor.monitor.RetentionPeriod
+//import ro.cosminmihu.ktor.monitor.ContentLength
+//import ro.cosminmihu.ktor.monitor.KtorMonitorLogging
+//import ro.cosminmihu.ktor.monitor.RetentionPeriod
 
 /**
  * Ktor client initialization with features
@@ -41,13 +41,13 @@ object HttpClientFactory {
                 }
                 level = LogLevel.ALL
             }
-            install(KtorMonitorLogging) {
-                sanitizeHeader { header -> header == "Authorization" }
-                filter { request -> !request.url.host.contains("com.starter.app") }
-                showNotification = true
-                retentionPeriod = RetentionPeriod.OneHour
-                maxContentLength = ContentLength.Default
-            }
+//            install(KtorMonitorLogging) {
+//                sanitizeHeader { header -> header == "Authorization" }
+//                filter { request -> !request.url.host.contains("com.starter.app") }
+//                showNotification = true
+//                retentionPeriod = RetentionPeriod.OneHour
+//                maxContentLength = ContentLength.Default
+//            }
             defaultRequest {
                 contentType(ContentType.Application.Json)
             }

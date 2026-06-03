@@ -13,7 +13,8 @@ plugins {
 kotlin {
     listOf(
         iosArm64(),
-        iosSimulatorArm64()
+        iosSimulatorArm64(),
+        iosX64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
             baseName = "Shared"
@@ -75,8 +76,9 @@ kotlin {
             // Ktor
             implementation(libs.bundles.ktor)
 
-            // Image loading - Kamel (works in commonMain for Android/iOS)
+            // Image loading - Coil 3 (works in commonMain for Android/iOS)
             implementation(libs.coil.image.loading)
+            implementation(libs.coil.network.ktor) // network fetcher for loading images from URLs
 
             //Room
             implementation(libs.androidx.room.runtime)
@@ -92,8 +94,9 @@ kotlin {
             implementation(libs.multiplatform.settings)
             implementation(libs.multiplatform.settings.no.arg)
 
-            //Ktor Monitor
-            implementation(libs.ktor.monitor.logging)
+            //Ktor Monitor - disabled: hard-references kotlinx.datetime.Clock.System,
+            // which was removed in kotlinx-datetime 0.7.x -> IrLinkageError crash on iOS.
+//            implementation(libs.ktor.monitor.logging)
 
             //Permissions
             implementation(libs.calf.permissions)
@@ -114,7 +117,7 @@ dependencies {
     androidRuntimeClasspath(libs.compose.uiTooling)
     add("kspAndroid", libs.androidx.room.compiler)
     add("kspIosSimulatorArm64", libs.androidx.room.compiler)
-//    add("kspIosX64", libs.androidx.room.compiler)
+    add("kspIosX64", libs.androidx.room.compiler)
     add("kspIosArm64", libs.androidx.room.compiler)
 }
 
