@@ -12,7 +12,7 @@ import org.koin.core.context.startKoin
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-//        multiplatform.network.cmptoast.AppContext.apply { set(applicationContext) }
+        multiplatform.network.cmptoast.AppContext.apply { set(applicationContext) }
         startKoin {
             androidContext(this@MyApplication)
             modules(platformModule, sharedModule)

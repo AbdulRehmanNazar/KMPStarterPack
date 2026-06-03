@@ -41,12 +41,12 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.compose.uiToolingPreview)
             //Koin
-            implementation(libs.koin.android)
-            implementation(libs.koin.androidx.compose)
+            api(libs.koin.android)
+            api(libs.koin.androidx.compose)
             //Ktor engine
-            implementation(libs.ktor.client.okhttp) // Android engine
+            api(libs.ktor.client.okhttp) // Android engine
 
-            implementation(libs.androidx.room.sqlite.wrapper)
+            api(libs.androidx.room.sqlite.wrapper)
         }
         iosMain.dependencies {
             //Ktor engine
@@ -86,7 +86,7 @@ kotlin {
             implementation(libs.sdp.ssp.compose.multiplatform)
 
             //Toast
-            implementation(libs.cmptoast)
+            api(libs.cmptoast)
 
             // Key-Value Preferences Storage
             implementation(libs.multiplatform.settings)

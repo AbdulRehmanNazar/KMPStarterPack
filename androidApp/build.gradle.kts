@@ -20,12 +20,12 @@ dependencies {
     debugImplementation(libs.compose.uiTooling)
 
     //Koin
-    implementation(libs.koin.android)
-    implementation(libs.koin.androidx.compose)
+//    implementation(libs.koin.android)
+//    implementation(libs.koin.androidx.compose)
     //Ktor engine
-    implementation(libs.ktor.client.okhttp) // Android engine
+//    implementation(libs.ktor.client.okhttp) // Android engine
 
-    implementation(libs.androidx.room.sqlite.wrapper)
+//    implementation(libs.androidx.room.sqlite.wrapper)
 }
 
 android {
